@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <title>Ures </title>
+    </head> 
+    <body> 
+        <h1>Ures </h1>
+        <div>
+            Hello World! 
+        </div>  
+    </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSR BATTLE - Premium Red</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050000;
+            --bg-card: #0c0000;
+            --accent-red: #ff0000;
+            --text-silver: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-silver); font-family: 'Rajdhani', sans-serif; padding-bottom: 120px; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+
+        /* Effects */
+        @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-15px); } }
+        @keyframes pulseGlow { 0% { text-shadow: 0 0 10px rgba(255,0,0,0.5); } 50% { text-shadow: 0 0 30px rgba(255,0,0,0.8); } 100% { text-shadow: 0 0 10px rgba(255,0,0,0.5); } }
+        @keyframes reveal { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .animate-reveal { animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .floating-logo { animation: drift 3s ease-in-out infinite alternate; }
+
+        /* Navigation */
+        header { 
+            padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 0, 0, 0.9); position: sticky; top: 0; z-index: 1000;
+            border-bottom: 2px solid var(--accent-red); backdrop-filter: blur(10px);
+        }
+        .nav-logo { height: 32px; border: 1px solid var(--accent-red); border-radius: 4px; display: none; }
+
+        /* Hero (Enhanced) */
+        .hero-section { 
+            min-height: 500px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: radial-gradient(circle at center, #220000 0%, #050000 70%); padding: 60px 20px; text-align: center;
+        }
+        #center-hero-logo { height: 140px; margin-bottom: 25px; filter: drop-shadow(0 0 20px rgba(255,0,0,0.4)); display: none; }
+        .hero-section h1 { font-size: 3.2rem; animation: pulseGlow 3s infinite; line-height: 1; margin-bottom: 10px; }
+        .hero-section p { color: #ff5555; font-size: 1.3rem; font-weight: 700; letter-spacing: 2px; }
+
+        /* Card Layout */
+        .premium-card { 
+            background: linear-gradient(145deg, #0f0000, #080000); 
+            border: 1px solid #300000; border-radius: 20px; 
+            padding: 30px; margin: 30px 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7); 
+            position: relative; overflow: hidden;
+        }
+        .premium-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-red); }
+
+        /* Social Hub */
+        .social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .social-btn { 
+            padding: 15px; border-radius: 12px; text-decoration: none; color: #fff; font-family: 'Orbitron'; font-size: 0.75rem;
+            display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 900; transition: 0.3s;
+        }
+        .yt { background: #e62117; box-shadow: 0 0 15px rgba(230,33,23,0.3); }
+        .wa { background: #25d366; color: #000; }
+        .tg { background: #0088cc; grid-column: 1 / -1; }
+        .social-btn:active { transform: scale(0.95); }
+
+        /* Leaderboard */
+        .elite-row { display: flex; align-items: center; gap: 20px; padding: 18px 0; border-bottom: 1px solid #200000; }
+        .rank-badge { font-family: 'Orbitron'; font-size: 1.6rem; color: var(--accent-red); min-width: 45px; }
+        .elite-avatar { height: 55px; width: 55px; border-radius: 50%; border: 2px solid var(--accent-red); object-fit: cover; box-shadow: 0 0 15px rgba(255,0,0,0.2); }
+        .elite-name { font-weight: 700; font-size: 1.15rem; flex: 1; color: #fff; }
+
+        /* Interactive Elements */
+        input { 
+            width: 100%; padding: 18px; background: #1a0000; border: 1px solid #400000; border-radius: 15px; 
+            color: #fff; text-align: center; margin: 20px 0; font-family: 'Orbitron'; font-size: 1.1rem; outline: none;
+        }
+        .btn-action { 
+            width: 100%; padding: 18px; border: none; border-radius: 15px; background: var(--accent-red); 
+            color: #fff; font-family: 'Orbitron'; font-weight: 900; letter-spacing: 1px; cursor: pointer;
+            box-shadow: 0 5px 25px rgba(255,0,0,0.4); transition: 0.3s;
+        }
+        .btn-action:hover { box-shadow: 0 0 35px rgba(255,0,0,0.6); transform: translateY(-2px); }
+
+        /* Modal */
+        #paymentModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px; }
+        .modal-box { background: #100000; padding: 40px; border-radius: 30px; border: 2px solid var(--accent-red); text-align: center; max-width: 400px; width: 100%; }
+        .id-display { background: #000; padding: 20px; margin: 20px 0; color: #ff0000; font-family: 'Orbitron'; border: 2px dashed #ff0000; font-size: 1.4rem; }
+
+        .sticky-foot { position: fixed; bottom: 0; width: 100%; padding: 20px; background: rgba(5,0,0,0.9); border-top: 1px solid var(--accent-red); z-index: 1500; backdrop-filter: blur(15px); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img id="ui-nav-logo" class="nav-logo" src="" alt="">
+            <span style="font-weight:900; color:#fff;">WSR <span style="color:var(--accent-red);">BATTLE</span></span>
+        </div>
+        <i class="fa-solid fa-ghost" style="color:var(--accent-red); font-size:1.3rem;"></i>
+    </header>
+
+    <section class="hero-section">
+        <img id="center-hero-logo" class="floating-logo" src="" alt="WSR LOGO">
+        <div class="animate-reveal">
+            <h1 id="ui-h1">DOMINATION</h1>
+            <p id="ui-p">LEGENDS NEVER DIE</p>
+        </div>
+    </section>
+
+    <!-- Social Connect Buttons -->
+    <div class="premium-card animate-reveal delay-1">
+        <h3 style="font-size: 0.9rem; color:var(--accent-red); margin-bottom:5px;">COMMUNITY HUB</h3>
+        <p style="font-size: 0.8rem; color:#888;">Join our official channels for updates</p>
+        <div class="social-row">
+            <a href="#" id="ui-yt" class="social-btn yt" target="_blank"><i class="fa-brands fa-youtube"></i> SUBSCRIBE</a>
+            <a href="#" id="ui-wa" class="social-btn wa" target="_blank"><i class="fa-brands fa-whatsapp"></i> JOIN GROUP</a>
+            <a href="#" id="ui-tg" class="social-btn tg" target="_blank"><i class="fa-solid fa-bell"></i> FOLLOW TELEGRAM</a>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="premium-card animate-reveal delay-2">
+        <h3 style="font-size: 0.9rem; color:var(--accent-red); margin-bottom:20px;">HALL OF FAME</h3>
+        <div class="elite-row">
+            <span class="rank-badge">01</span>
+            <img id="p1-img" class="elite-avatar" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="">
+            <span class="elite-name" id="p1-name">---</span>
+            <i class="fa-solid fa-crown" style="color:gold;"></i>
+        </div>
+        <div class="elite-row">
+            <span class="rank-badge">02</span>
+            <img id="p2-img" class="elite-avatar" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="">
+            <span class="elite-name" id="p2-name">---</span>
+        </div>
+        <div class="elite-row" style="border:none;">
+            <span class="rank-badge">03</span>
+            <img id="p3-img" class="elite-avatar" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="">
+            <span class="elite-name" id="p3-name">---</span>
+        </div>
+    </div>
+
+    <!-- ID System -->
+    <div class="premium-card animate-reveal delay-3">
+        <h3 style="font-size: 0.9rem; color:var(--accent-red);">DEPOSIT ACCESS</h3>
+        <input type="text" id="userPromo" placeholder="ENTER CODE">
+        <button class="btn-action" onclick="claimID()">GET PAYMENT ID</button>
+    </div>
+
+    <!-- Info -->
+    <div class="premium-card animate-reveal">
+        <h3 style="font-size: 0.9rem; color:var(--accent-red); margin-bottom:15px;">NEED HELP?</h3>
+        <div style="background:#150000; padding:15px; border-radius:12px; margin-bottom:10px; cursor:pointer;" onclick="toggle('faq1')">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+                <span id="ui-f1-q">FAQ</span> <i class="fa-solid fa-plus"></i>
+            </div>
+            <div id="faq1" style="display:none; padding-top:10px; color:#aaa; font-size:0.9rem;">...</div>
+        </div>
+        <div style="background:#150000; padding:15px; border-radius:12px; cursor:pointer;" onclick="toggle('policy')">
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+                <span>RULES & POLICY</span> <i class="fa-solid fa-shield"></i>
+            </div>
+            <div id="policy" style="display:none; padding-top:10px; color:#aaa; font-size:0.85rem; white-space: pre-wrap;">...</div>
+        </div>
+    </div>
+
+    <div id="paymentModal">
+        <div class="modal-box">
+            <i class="fa-solid fa-biohazard" style="color:var(--accent-red); font-size:4rem;"></i>
+            <h2 style="margin-top:20px;">ACCESS GRANTED</h2>
+            <div class="id-display" id="generatedID">---</div>
+            <button class="btn-action" onclick="document.getElementById('paymentModal').style.display='none'">COPY & CLOSE</button>
+        </div>
+    </div>
+
+    <div class="sticky-foot">
+        <a href="#" id="apk-link" class="btn-action" style="display:block; text-align:center; text-decoration:none;">
+            DOWNLOAD APK <i class="fa-brands fa-android"></i>
+        </a>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyByRsy2mrovWhRqm3fbPhXLV_f5OKFxh_I",
+  authDomain: "web-ws.firebaseapp.com",
+  databaseURL: "https://web-ws-default-rtdb.firebaseio.com",
+  projectId: "web-ws",
+  storageBucket: "web-ws.firebasestorage.app",
+  messagingSenderId: "482779403112",
+  appId: "1:482779403112:web:1ce5c141ed59865f553cdd"
+};
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        let liveData = {};
+
+        onValue(ref(db), (snap) => {
+            liveData = snap.val() || {};
+            // Content
+            document.getElementById('ui-h1').innerText = liveData.hero_h1 || "ARENA";
+            document.getElementById('ui-p').innerText = liveData.hero_p || "LEGEND";
+            
+            // Branding
+            if(liveData.logo_url) { 
+                const navLogo = document.getElementById('ui-nav-logo');
+                navLogo.src = liveData.logo_url; navLogo.style.display="block";
+            }
+            if(liveData.center_logo_url) {
+                const centerLogo = document.getElementById('center-hero-logo');
+                centerLogo.src = liveData.center_logo_url; centerLogo.style.display="block";
+            }
+
+            // Buttons
+            document.getElementById('ui-yt').href = liveData.yt_link || "#";
+            document.getElementById('ui-wa').href = liveData.wa_link || "#";
+            document.getElementById('ui-tg').href = liveData.tg_link || "#";
+            document.getElementById('apk-link').href = liveData.apk_link || "#";
+
+            // Leaderboard
+            document.getElementById('p1-name').innerText = liveData.p1_name || "---";
+            if(liveData.p1_img) document.getElementById('p1-img').src = liveData.p1_img;
+            document.getElementById('p2-name').innerText = liveData.p2_name || "---";
+            if(liveData.p2_img) document.getElementById('p2-img').src = liveData.p2_img;
+            document.getElementById('p3-name').innerText = liveData.p3_name || "---";
+            if(liveData.p3_img) document.getElementById('p3-img').src = liveData.p3_img;
+
+            // Info
+            document.getElementById('ui-f1-q').innerText = liveData.f1_q || "FAQ";
+            document.getElementById('faq1').innerText = liveData.f1_a || "";
+            document.getElementById('policy').innerText = liveData.policy_text || "";
+        });
+
+        window.toggle = (id) => {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+        };
+
+        window.claimID = () => {
+            const input = document.getElementById('userPromo').value.trim().toUpperCase();
+            if(input === (liveData.promo_code || "WSR").toUpperCase()) {
+                const ids = (liveData.payment_ids || "PENDING").split(',').map(x => x.trim());
+                document.getElementById('generatedID').innerText = ids[Math.floor(Math.random() * ids.length)];
+                document.getElementById('paymentModal').style.display = 'flex';
+            } else {
+                alert("Invalid Access Code!");
+            }
+        };
+    </script>
+</body>
+</html>
